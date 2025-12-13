@@ -1,0 +1,155 @@
+Product Name: Wireless Bluetooth Headphones
+Category: Electronics
+Brand: Sony
+Features: Noise cancellation, 30-hour battery life, Foldable design
+
+Product Name: Running Shoes
+Category: Footwear
+Brand: Nike
+Features: Breathable mesh, Cushioned sole, Waterproof
+
+Product Name: Coffee Maker
+Category: Kitchen Appliances
+Brand: Breville
+Features: Programmable timer, Auto-shutoff, Stainless steel body
+
+Product Name: Yoga Mat
+Category: Fitness
+Brand: Lululemon
+Features: Non-slip surface, Eco-friendly material, Lightweight
+
+Product Name: Smartphone
+Category: Electronics
+Brand: Samsung
+Features: High-resolution camera, Fast charging, Water-resistant
+
+Product Name: Denim Jeans
+Category: Clothing
+Brand: Levi's
+Features: Slim fit, Durable fabric, Classic style
+
+Product Name: Blender
+Category: Kitchen Appliances
+Brand: Oster
+Features: Multiple speed settings, Ice crushing capability, Dishwasher safe
+
+Product Name: Laptop
+Category: Electronics
+Brand: Apple
+Features: Retina display, Long battery life, Lightweight
+
+Product Name: Backpack
+Category: Accessories
+Brand: Patagonia
+Features: Water-resistant, Multiple compartments, Ergonomic straps
+
+Product Name: Microwave Oven
+Category: Kitchen Appliances
+Brand: Panasonic
+Features: Inverter technology, Quick defrost, Compact size
+
+Product Name: T-Shirt
+Category: Clothing
+Brand: Adidas
+Features: Moisture-wicking, Breathable, Logo print
+
+Product Name: Smartwatch
+Category: Electronics
+Brand: Garmin
+Features: Heart rate monitor, GPS tracking, Sleep analysis
+
+Product Name: Sneakers
+Category: Footwear
+Brand: Adidas
+Features: Arch support, Shock absorption, Stylish design
+
+Product Name: Toaster
+Category: Kitchen Appliances
+Brand: KitchenAid
+Features: Wide slots, Bagel function, Crumb tray
+
+Product Name: Tablet
+Category: Electronics
+Brand: Microsoft
+Features: Detachable keyboard, High-resolution screen, Long battery
+
+Product Name: Hoodie
+Category: Clothing
+Brand: Nike
+Features: Fleece lining, Hood with drawstring, Pockets
+
+Product Name: Air Fryer
+Category: Kitchen Appliances
+Brand: Philips
+Features: Oil-free cooking, Rapid air technology, Easy clean
+
+Product Name: Sunglasses
+Category: Accessories
+Brand: Ray-Ban
+Features: UV protection, Polarized lenses, Lightweight frame
+
+Product Name: Dumbbells
+Category: Fitness
+Brand: Bowflex
+Features: Adjustable weight, Ergonomic grip, Durable construction
+
+
+Product Name: Wired Headphones
+Category: Electronics
+Brand: Sennheiser
+Features: High-fidelity audio, Durable cable, Comfortable over-ear pads
+
+Product Name: Wired Earbuds
+Category: Electronics
+Brand: JBL
+Features: Inline microphone, Tangle-free cable, Noise isolation
+
+Product Name: True Wireless Earbuds
+Category: Electronics
+Brand: Anker
+Features: Bluetooth 5.3, Wireless charging case, 5-hour battery (earbuds)
+
+Product Name: In-Ear Monitors
+Category: Electronics
+Brand: Shure
+Features: Studio-quality sound, Secure fit, Detachable cable
+
+Product Name: Gaming Headset (Wired)
+Category: Electronics
+Brand: HyperX
+Features: Surround sound, Noise-cancelling mic, Padded headband
+
+Product Name: Sports Earbuds (Wireless)
+Category: Electronics
+Brand: Beats
+Features: Sweat-resistant, Secure ear hooks, Fast pairing
+
+Product Name: Hiking Boots
+Category: Footwear
+Brand: Salomon
+Features: Waterproof, Ankle support, Traction outsole
+
+Product Name: Sandals
+Category: Footwear
+Brand: Birkenstock
+Features: Contoured footbed, Adjustable straps, Durable leather
+
+Product Name: Loafers
+Category: Footwear
+Brand: Gucci
+Features: Slip-on design, Leather upper, Comfortable insole
+
+Product Name: Boots
+Category: Footwear
+Brand: Timberland
+Features: Waterproof membrane, Reinforced toe, Rugged sole
+
+Product Name: Flip-Flops
+Category: Footwear
+Brand: Havaianas
+Features: Rubber sole, Comfortable strap, Lightweight
+
+Product Name: Dress Shoes
+Category: Footwear
+Brand: Clarks
+Features: Polished leather, Cushioned heel, Formal style

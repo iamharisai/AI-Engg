@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "google-genai>=1.51.0",
+    "langchain-chroma>=1.1.0",
     "langchain-community>=0.4.1",
     "langchain-core>=1.1.0",
     "langchain-openai>=1.1.0",
