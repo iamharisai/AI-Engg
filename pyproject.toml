@@ -5,6 +5,7 @@ description = "Telusko AI engg course Notes"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "ddgs>=9.10.0",
     "google-genai>=1.51.0",
     "langchain-chroma>=1.1.0",
     "langchain-community>=0.4.1",

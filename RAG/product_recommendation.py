@@ -65,4 +65,3 @@ print (recommend_products(product_name="chappal",k=2))
 # - Rubber sole provides flexibility and durability.
 # - The comfortable strap makes them easy to wear for long periods.
 # - Lightweight design perfect for casual and everyday use.
-# (.venv) harisai.marisa@MAC-H2LWT644XR AI-Engg % 
