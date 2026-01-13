@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain_community.tools import tool
@@ -8,15 +8,15 @@ load_dotenv()
 
 @tool("get_current_datetime")
 def get_current_datetime():
-    """Returns the current date and time as a string."""
-    return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    """Returns the current date and time in UTC as a string."""
+    return datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
 
 model = ChatOpenAI(model_name="gpt-4o")
 
 model_with_tools = model.bind_tools([get_current_datetime])
 
 messages = []
-query  = "What is the current date?"
+query  = "What is the current time in IST?"
 messages.append(HumanMessage(content=query))
 
 ai_msg = model_with_tools.invoke(messages)
@@ -31,5 +31,4 @@ if ai_msg.tool_calls[0]["name"] == "get_current_datetime":
 
 # The last message will be AI message
 print(messages[-1].content)
-# The current date is December 29, 2025.
 
