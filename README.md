@@ -38,7 +38,13 @@ AI-Engg/
 │   ├── 00_graph_without_LLM.py
 │   ├── 01_joke_simulator.py
 │   ├── 02_parallel_workflow.py
-│   └── 03_batsman.py
+│   ├── 03_batsman.py
+│   └── chatbot/                          # Streaming chatbot with thread persistence
+│       ├── langgraph_backend.py          # StateGraph + InMemorySaver checkpointer
+│       ├── main.py                       # CLI chat loop
+│       ├── streamlit_frontend.py         # Basic Streamlit UI
+│       ├── streamlit_frontend_streaming.py  # Streamed token output
+│       └── streamlit_frontend_threading.py  # Multi-thread sidebar + auto-naming
 │
 └── MCP/                    # Model Context Protocol
     ├── 00_MCP_FS_Client/   # File system MCP client
@@ -73,15 +79,15 @@ Following the [CampusX LangGraph playlist](https://github.com/campusx-official/l
 | 6 | Conditional edges / routing | `LangGraph/06_review_handler.ipynb` | ✅ |
 | 7 | Review reply workflow | `LangGraph/06_review_handler.ipynb` | ✅ |
 | 8 | X post generator | `LangGraph/07_X_post_generator.ipynb` | ✅ |
-| 9 | Basic chatbot in LangGraph | — | ❌ |
-| 10 | Persistence (checkpointers, thread IDs) | — | ❌ |
+| 9 | Basic chatbot in LangGraph | `LangGraph/chatbot/langgraph_backend.py`, `main.py`, `streamlit_frontend*.py` | ✅ |
+| 10 | Persistence (checkpointers, thread IDs) | `LangGraph/chatbot/streamlit_frontend_threading.py` | ✅ |
 | 11 | Tools in LangGraph | — | ❌ |
 | 12 | MCP | `MCP/` | ✅ Done separately |
 | 13 | RAG in LangGraph | `RAG/` | ✅ Done separately |
 | 14 | Human-in-the-Loop (HITL) | — | ❌ |
 | 15 | Subgraphs + shared state | — | ❌ |
 
-**Remaining order:** 9 (chatbot) → 10 (persistence) → 11 (tools) → 14 (HITL) → 15 (subgraphs)
+**Remaining order:** 11 (tools) → 14 (HITL) → 15 (subgraphs)
 
 ### Phase 3 — Fine-tuning 🔜 Up Next
 
@@ -134,6 +140,22 @@ GOOGLE_API_KEY=your_google_key
 uv run python 101/openai-sdk.py
 uv run python langchain-demo/lc-basicQA.py
 uv run python RAG/product_recommendation.py
+```
+
+### LangGraph Chatbot
+
+The chatbot lives in `LangGraph/chatbot/` and ships with a CLI and three Streamlit frontends — pick one:
+
+```bash
+
+# Basic Streamlit UI (single thread, no streaming)
+uv run streamlit run LangGraph/chatbot/streamlit_frontend.py
+
+# Streamlit UI with token-by-token streaming
+uv run streamlit run LangGraph/chatbot/streamlit_frontend_streaming.py
+
+# Streamlit UI with multi-thread sidebar + auto-naming + persistence
+uv run streamlit run LangGraph/chatbot/streamlit_frontend_threading.py
 ```
 
 ## Dependencies
