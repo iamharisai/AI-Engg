@@ -1,5 +1,7 @@
 # AI Engineering
 
+This repository is my personal learning path for AI engineering. I initially started with the AI Engineering course by Telusko. During the breaks, I followed LangGraph's playlist from the CampusX YouTube playlist.
+
 Notes and code examples exploring AI engineering concepts including LLM integrations, agents, RAG, and more.
 
 ## Project Structure
@@ -42,6 +44,51 @@ AI-Engg/
     ├── 00_MCP_FS_Client/   # File system MCP client
     └── 01_MCP_Server/      # Custom MCP server & client
 ```
+
+## Learning Plan
+
+### Phase 1 — Foundations ✅ Complete
+
+| Topic | Folder | What's built |
+|---|---|---|
+| LLM SDK Basics | `101/` | Direct OpenAI & Gemini API calls |
+| Raw HTTP | `Old-school-requests/` | `requests` lib against OpenAI REST |
+| LangChain | `langchain-demo/` | Chains, prompt templates, output parsers |
+| Memory | `langchain-demo/` | Stateful multi-turn chatbot with `RunnableWithMessageHistory` |
+| Tool Calling | `Tool-calling/` | DuckDuckGo + custom `@tool` decorators, manual tool loop |
+| Agents | `Agents/` | ReAct pattern with `create_react_agent` |
+| RAG | `RAG/` | ChromaDB + OpenAI embeddings + retrieval chain |
+
+### Phase 2 — LangGraph 🔄 In Progress
+
+Following the [CampusX LangGraph playlist](https://github.com/campusx-official/langgraph-tutorials):
+
+| # | Topic | File | Status |
+|---|---|---|---|
+| 1 | Graph basics, no LLM (BMI/Loan workflow) | `LangGraph/00_graph_without_LLM.py` | ✅ |
+| 2 | Simple LLM workflow | `LangGraph/01_joke_simulator.py` | ✅ |
+| 3 | Prompt chaining | `LangGraph/04_prompt_chaining.ipynb` | ✅ |
+| 4 | Parallel workflow | `LangGraph/02_parallel_workflow.py`, `03_batsman.py` | ✅ |
+| 5 | UPSC essay workflow | `LangGraph/05_essay_evaluator.ipynb` | ✅ |
+| 6 | Conditional edges / routing | `LangGraph/06_review_handler.ipynb` | ✅ |
+| 7 | Review reply workflow | `LangGraph/06_review_handler.ipynb` | ✅ |
+| 8 | X post generator | `LangGraph/07_X_post_generator.ipynb` | ✅ |
+| 9 | Basic chatbot in LangGraph | — | ❌ |
+| 10 | Persistence (checkpointers, thread IDs) | — | ❌ |
+| 11 | Tools in LangGraph | — | ❌ |
+| 12 | MCP | `MCP/` | ✅ Done separately |
+| 13 | RAG in LangGraph | `RAG/` | ✅ Done separately |
+| 14 | Human-in-the-Loop (HITL) | — | ❌ |
+| 15 | Subgraphs + shared state | — | ❌ |
+
+**Remaining order:** 9 (chatbot) → 10 (persistence) → 11 (tools) → 14 (HITL) → 15 (subgraphs)
+
+### Phase 3 — Fine-tuning 🔜 Up Next
+
+Started with `Fine-tuning/huggingfacedemo.ipynb` (HuggingFace Hub, dataset loading, streaming).
+Next: LoRA/QLoRA fine-tuning on an open model, pushing adapters to Hub, inference with fine-tuned model.
+
+---
 
 ## Topics Covered
 
