@@ -1,5 +1,11 @@
 import streamlit as st
-from langgraph_backend_database import chatbot, llm, retrieve_all_threads
+from langgraph_backend_database_v2 import (
+    chatbot,
+    llm,
+    create_thread,
+    set_thread_title,
+    list_threads,
+)
 from langchain_core.messages import HumanMessage, AIMessage
 import uuid
 import os
@@ -11,11 +17,12 @@ def generate_thread_id():
 
 def reset_thread():
     st.session_state["thread_id"] = generate_thread_id()
-    add_thread(st.session_state["thread_id"])
     st.session_state['message_history'] = []
 
-def add_thread(thread_id):
-    if thread_id not in st.session_state['chat_threads'].keys():
+def persist_thread(thread_id):
+    """Insert the thread row on first successful Q+A. Idempotent."""
+    if thread_id not in st.session_state['chat_threads']:
+        create_thread(thread_id)
         st.session_state['chat_threads'][thread_id] = None
 
 def load_thread(thread_id):
@@ -23,7 +30,7 @@ def load_thread(thread_id):
     return state.get("messages", [])
 
 def name_thread(thread_id):
-    if st.session_state['chat_threads'][thread_id] is not None:
+    if st.session_state['chat_threads'].get(thread_id) is not None:
         return
     messages = chatbot.get_state(config={'configurable': {'thread_id': thread_id}}).values.get("messages", [])
     if not messages:
@@ -31,6 +38,7 @@ def name_thread(thread_id):
     instruction = HumanMessage(content="Reply with ONLY a 1-4 word title for this conversation. No quotes, no preamble, no trailing punctuation.")
     name = llm.invoke(messages + [instruction]).content.strip().strip('"').strip("'")
     st.session_state['chat_threads'][thread_id] = name
+    set_thread_title(thread_id, name)
 
 # ***************************** Session setup ****************************************
 if 'thread_id' not in st.session_state:
@@ -40,9 +48,7 @@ if 'message_history' not in st.session_state:
     st.session_state['message_history'] = []
 
 if 'chat_threads' not in st.session_state:
-    st.session_state['chat_threads'] = {key: None for key in retrieve_all_threads()}
-
-add_thread(st.session_state["thread_id"])
+    st.session_state['chat_threads'] = dict(list_threads())
 
 CONFIG = {'configurable': {'thread_id': st.session_state["thread_id"]}}
 # ***************************** Sidebar session ****************************************
@@ -70,7 +76,7 @@ for thread_id in reversed(list(st.session_state['chat_threads'].keys())):
 # ***************************** Main conversation thread UI ****************************************
 
 # loading the conversation history
-for message in st.session_state['message_history'] :
+for message in st.session_state['message_history']:
     with st.chat_message(message['role']):
         st.text(message['content'])
 
@@ -89,10 +95,11 @@ if user_input:
         ai_message = st.write_stream(
             message_chunk.content for message_chunk, _ in chatbot.stream(
                 {'messages': [HumanMessage(content=user_input)]},
-                config= CONFIG,
-                stream_mode= 'messages'
+                config=CONFIG,
+                stream_mode='messages'
             )
         )
 
     st.session_state['message_history'].append({'role': 'assistant', 'content': ai_message})
+    persist_thread(st.session_state["thread_id"])
     name_thread(st.session_state["thread_id"])
